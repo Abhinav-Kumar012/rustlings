@@ -1,4 +1,5 @@
 # Rustlings install and initialization
+Link : [https://rustlings.rust-lang.org/](https://rustlings.rust-lang.org/)
 ```sh
 # Installation
 cargo install rustlings
@@ -10,6 +11,7 @@ cd rustlings
 rustlings
 ```
 ## Install Rust
+Link : [https://rustup.rs/](https://rustup.rs/)
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
