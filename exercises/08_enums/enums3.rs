@@ -50,7 +50,7 @@ impl State {
             Message::Resize { width, height } => self.resize(width, height),
             Message::Move(t) => self.move_position(t),
             Message::Echo(s) => self.echo(s),
-            Message::ChangeColor(r,g ,b ) => self.change_color(r, g, b),
+            Message::ChangeColor(r, g, b) => self.change_color(r, g, b),
             Message::Quit => self.quit(),
         }
     }
