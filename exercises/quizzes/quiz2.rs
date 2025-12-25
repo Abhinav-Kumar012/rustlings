@@ -28,9 +28,9 @@ mod my_module {
 
     // TODO: Complete the function as described above.
     // pub fn transformer(input: ???) -> ??? { ??? }
-    pub fn transformer(input : Vec<(String,Command)>) -> Vec<String> {
-        let mut result  = Vec::<String>::with_capacity(input.len());
-        for (str_bfore,cmd) in input.into_iter(){
+    pub fn transformer(input: Vec<(String, Command)>) -> Vec<String> {
+        let mut result = Vec::<String>::with_capacity(input.len());
+        for (str_bfore, cmd) in input.into_iter() {
             let str_after = match cmd {
                 Command::Uppercase => str_bfore.to_uppercase(),
                 Command::Trim => str_bfore.trim().to_string(),

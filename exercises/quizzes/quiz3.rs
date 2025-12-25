@@ -21,9 +21,9 @@ struct ReportCard<T> {
 }
 
 // TODO: Adjust the impl block as described above.
-impl<T> ReportCard<T> 
+impl<T> ReportCard<T>
 where
-    T : Display,
+    T: Display,
 {
     fn print(&self) -> String {
         format!(

@@ -13,9 +13,9 @@ impl PositiveNonzeroInteger {
         // Read the tests below to clarify what should be returned.
         return if value < 0 {
             Err(CreationError::Negative)
-        }else if value == 0 {
+        } else if value == 0 {
             Err(CreationError::Zero)
-        }else{
+        } else {
             Ok(Self(value as u64))
         };
     }
