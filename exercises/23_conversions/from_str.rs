@@ -5,7 +5,7 @@
 // more about it in the documentation:
 // https://doc.rust-lang.org/std/str/trait.FromStr.html
 
-use std::num::{ParseIntError};
+use std::num::ParseIntError;
 use std::str::FromStr;
 
 #[derive(Debug, PartialEq)]
@@ -42,7 +42,7 @@ impl FromStr for Person {
     type Err = ParsePersonError;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        let p : Vec<&str> = s.split(",").collect();
+        let p: Vec<&str> = s.split(",").collect();
         if p.len() != 2 {
             return Err(ParsePersonError::BadLen);
         }
@@ -51,7 +51,10 @@ impl FromStr for Person {
             return Err(ParsePersonError::NoName);
         }
         let age = p[1].parse().map_err(ParsePersonError::ParseInt)?;
-        return Ok(Self { name : String::from(name), age });
+        return Ok(Self {
+            name: String::from(name),
+            age,
+        });
     }
 }
 

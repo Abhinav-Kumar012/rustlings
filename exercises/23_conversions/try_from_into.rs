@@ -32,7 +32,7 @@ impl TryFrom<(i16, i16, i16)> for Color {
         let red = u8::try_from(tuple.0).map_err(|_| IntoColorError::IntConversion)?;
         let green = u8::try_from(tuple.1).map_err(|_| IntoColorError::IntConversion)?;
         let blue = u8::try_from(tuple.2).map_err(|_| IntoColorError::IntConversion)?;
-        return Ok(Self {red,green,blue});
+        return Ok(Self { red, green, blue });
     }
 }
 
@@ -44,7 +44,7 @@ impl TryFrom<[i16; 3]> for Color {
         let red = u8::try_from(arr[0]).map_err(|_| IntoColorError::IntConversion)?;
         let green = u8::try_from(arr[1]).map_err(|_| IntoColorError::IntConversion)?;
         let blue = u8::try_from(arr[2]).map_err(|_| IntoColorError::IntConversion)?;
-        return Ok(Self {red,green,blue});
+        return Ok(Self { red, green, blue });
     }
 }
 
@@ -55,12 +55,12 @@ impl TryFrom<&[i16]> for Color {
 
     fn try_from(slice: &[i16]) -> Result<Self, Self::Error> {
         if slice.len() != 3 {
-            return Err(IntoColorError::BadLen)
+            return Err(IntoColorError::BadLen);
         }
         let red = u8::try_from(slice[0]).map_err(|_| IntoColorError::IntConversion)?;
         let green = u8::try_from(slice[1]).map_err(|_| IntoColorError::IntConversion)?;
         let blue = u8::try_from(slice[2]).map_err(|_| IntoColorError::IntConversion)?;
-        return Ok(Self {red,green,blue});
+        return Ok(Self { red, green, blue });
     }
 }
 

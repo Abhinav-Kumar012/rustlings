@@ -8,7 +8,7 @@ use core::f32;
 
 fn main() {
     // TODO: Fix the Clippy lint in this line.
-    const PI : f32 = f32::consts::PI;
+    const PI: f32 = f32::consts::PI;
     let radius: f32 = 5.0;
 
     let area = PI * radius.powi(2);
