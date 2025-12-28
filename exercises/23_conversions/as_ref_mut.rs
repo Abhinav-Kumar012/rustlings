@@ -7,68 +7,68 @@
 // TODO: Add the `AsRef` trait appropriately as a trait bound.
 fn byte_counter<T>(arg: T) -> usize
 where
-    T: AsRef<str>,
+	T: AsRef<str>,
 {
-    arg.as_ref().len()
+	arg.as_ref().len()
 }
 
 // Obtain the number of characters (not bytes) in the given argument.
 // TODO: Add the `AsRef` trait appropriately as a trait bound.
 fn char_counter<T>(arg: T) -> usize
 where
-    T: AsRef<str>,
+	T: AsRef<str>,
 {
-    arg.as_ref().chars().count()
+	arg.as_ref().chars().count()
 }
 
 // Squares a number using `as_mut()`.
 // TODO: Add the appropriate trait bound.
 fn num_sq<T, U>(arg: &mut T)
 where
-    T: AsMut<U>,
-    U: std::ops::MulAssign + Copy,
+	T: AsMut<U>,
+	U: std::ops::MulAssign + Copy,
 {
-    // TODO: Implement the function body.
-    let num = arg.as_mut();
-    *num *= *num;
+	// TODO: Implement the function body.
+	let num = arg.as_mut();
+	*num *= *num;
 }
 
 fn main() {
-    // You can optionally experiment here.
+	// You can optionally experiment here.
 }
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+	use super::*;
 
-    #[test]
-    fn different_counts() {
-        let s = "Café au lait";
-        assert_ne!(char_counter(s), byte_counter(s));
-    }
+	#[test]
+	fn different_counts() {
+		let s = "Café au lait";
+		assert_ne!(char_counter(s), byte_counter(s));
+	}
 
-    #[test]
-    fn same_counts() {
-        let s = "Cafe au lait";
-        assert_eq!(char_counter(s), byte_counter(s));
-    }
+	#[test]
+	fn same_counts() {
+		let s = "Cafe au lait";
+		assert_eq!(char_counter(s), byte_counter(s));
+	}
 
-    #[test]
-    fn different_counts_using_string() {
-        let s = String::from("Café au lait");
-        assert_ne!(char_counter(s.clone()), byte_counter(s));
-    }
+	#[test]
+	fn different_counts_using_string() {
+		let s = String::from("Café au lait");
+		assert_ne!(char_counter(s.clone()), byte_counter(s));
+	}
 
-    #[test]
-    fn same_counts_using_string() {
-        let s = String::from("Cafe au lait");
-        assert_eq!(char_counter(s.clone()), byte_counter(s));
-    }
+	#[test]
+	fn same_counts_using_string() {
+		let s = String::from("Cafe au lait");
+		assert_eq!(char_counter(s.clone()), byte_counter(s));
+	}
 
-    #[test]
-    fn mut_box() {
-        let mut num: Box<u32> = Box::new(3);
-        num_sq(&mut num);
-        assert_eq!(*num, 9);
-    }
+	#[test]
+	fn mut_box() {
+		let mut num: Box<u32> = Box::new(3);
+		num_sq(&mut num);
+		assert_eq!(*num, 9);
+	}
 }

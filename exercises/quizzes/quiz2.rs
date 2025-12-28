@@ -18,59 +18,59 @@
 // - The output element is going to be a vector of strings.
 
 enum Command {
-    Uppercase,
-    Trim,
-    Append(usize),
+	Uppercase,
+	Trim,
+	Append(usize),
 }
 
 mod my_module {
-    use super::Command;
+	use super::Command;
 
-    // TODO: Complete the function as described above.
-    // pub fn transformer(input: ???) -> ??? { ??? }
-    pub fn transformer(input: Vec<(String, Command)>) -> Vec<String> {
-        let mut result = Vec::<String>::with_capacity(input.len());
-        for (str_bfore, cmd) in input.into_iter() {
-            let str_after = match cmd {
-                Command::Uppercase => str_bfore.to_uppercase(),
-                Command::Trim => str_bfore.trim().to_string(),
-                Command::Append(t) => str_bfore + &"bar".repeat(t),
-            };
-            result.push(str_after);
-        }
-        return result;
-    }
+	// TODO: Complete the function as described above.
+	// pub fn transformer(input: ???) -> ??? { ??? }
+	pub fn transformer(input: Vec<(String, Command)>) -> Vec<String> {
+		let mut result = Vec::<String>::with_capacity(input.len());
+		for (str_bfore, cmd) in input.into_iter() {
+			let str_after = match cmd {
+				Command::Uppercase => str_bfore.to_uppercase(),
+				Command::Trim => str_bfore.trim().to_string(),
+				Command::Append(t) => str_bfore + &"bar".repeat(t),
+			};
+			result.push(str_after);
+		}
+		return result;
+	}
 }
 
 fn main() {
-    // You can optionally experiment here.
+	// You can optionally experiment here.
 }
 
 #[cfg(test)]
 mod tests {
-    // TODO: What do we need to import to have `transformer` in scope?
-    // use ???;
-    use super::Command;
-    use crate::my_module::transformer;
+	// TODO: What do we need to import to have `transformer` in scope?
+	// use ???;
+	use super::Command;
+	use crate::my_module::transformer;
 
-    #[test]
-    fn it_works() {
-        let input = vec![
-            ("hello".to_string(), Command::Uppercase),
-            (" all roads lead to rome! ".to_string(), Command::Trim),
-            ("foo".to_string(), Command::Append(1)),
-            ("bar".to_string(), Command::Append(5)),
-        ];
-        let output = transformer(input);
+	#[test]
+	fn it_works() {
+		let input = vec![
+			("hello".to_string(), Command::Uppercase),
+			(" all roads lead to rome! ".to_string(), Command::Trim),
+			("foo".to_string(), Command::Append(1)),
+			("bar".to_string(), Command::Append(5)),
+		];
+		let output = transformer(input);
 
-        assert_eq!(
-            output,
-            [
-                "HELLO",
-                "all roads lead to rome!",
-                "foobar",
-                "barbarbarbarbarbar",
-            ]
-        );
-    }
+		assert_eq!(
+			output,
+			[
+				"HELLO",
+				"all roads lead to rome!",
+				"foobar",
+				"barbarbarbarbarbar",
+			]
+		);
+	}
 }

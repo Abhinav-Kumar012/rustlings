@@ -7,11 +7,11 @@
 use core::f32;
 
 fn main() {
-    // TODO: Fix the Clippy lint in this line.
-    const PI: f32 = f32::consts::PI;
-    let radius: f32 = 5.0;
+	// TODO: Fix the Clippy lint in this line.
+	const PI: f32 = f32::consts::PI;
+	let radius: f32 = 5.0;
 
-    let area = PI * radius.powi(2);
+	let area = PI * radius.powi(2);
 
-    println!("The area of a circle with radius {radius:.2} is {area:.5}");
+	println!("The area of a circle with radius {radius:.2} is {area:.5}");
 }

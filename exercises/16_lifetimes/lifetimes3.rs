@@ -2,15 +2,15 @@
 
 // TODO: Fix the compiler errors about the struct.
 struct Book<'a> {
-    author: &'a str,
-    title: &'a str,
+	author: &'a str,
+	title: &'a str,
 }
 
 fn main() {
-    let book = Book {
-        author: "George Orwell",
-        title: "1984",
-    };
+	let book = Book {
+		author: "George Orwell",
+		title: "1984",
+	};
 
-    println!("{} by {}", book.title, book.author);
+	println!("{} by {}", book.title, book.author);
 }
